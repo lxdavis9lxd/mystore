@@ -41,7 +41,7 @@ router.get('/', async (req, res, next) => {   // call restAPI to get Bearer Toke
   console.error('Error:', error);
 });
         
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Welcome to ProductRUS' });
 });  
   
 
