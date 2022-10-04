@@ -15,7 +15,7 @@ body {
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size:16px;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -67,27 +67,65 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 </style>
 </head>
 <body>
 
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Empolyees
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href=empadd.ejs>Add</a>
+        <a href=empupdt.ejs>Update</a>
+        <a href=empdel.ejs>Delete</a>
+        <a href=emplistall.ejs>List All</a>
+        <a href=emplistbyid.ejs>List By ID</a>
+        <a href=empsearch.ejs>Search</a>
+      </div>
     </div>
-  </div> 
-</div>
+    <div class="dropdown">
+      <button class="dropbtn">Customers
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href=custadd.ejs>Add</a>
+        <a href=custupdt.ejs>Update</a>
+        <a href=custdel.ejs>Delete</a>
+        <a href=custlistall.ejs>List All</a>
+        <a href=custlistbyid.ejs>List By ID</a>
+        <a href=custsearch.ejs>Search</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Product
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href=prodadd.ejs>Add</a>
+        <a href=produpdt.ejs>Update</a>
+        <a href=proddel.ejs>Delete</a>
+        <a href=prodlistall.ejs>List All</a>
+        <a href=prodlistbyid.ejs>List By ID</a>
+        <a href=prodsearch.ejs>Search</a>
+      </div>
+    </div>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#register">Register</a>
+    <div class="login-container">
+      <form  action="/action_page.php">
+        <input type="text" placeholder="Username" name="username" size="20">
+        <input type="password" placeholder="Password" name="psw" size="20">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
 
-<h3>Dropdown Menu inside a Navigation Bar</h3>
-<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+
 
 </body>
 </html>
