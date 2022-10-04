@@ -8,10 +8,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeesRouter = require('./routes/employees');
 var customerRouter = require('./routes/customer');
-var customerbyidRouter = require('./routes/customerbyidold');
-
-var listtestRouter = require('./routes/customertestold');
-var byidtestRouter = require('./routes/customertestold');
 var app = express();
 
 // view engine setup
