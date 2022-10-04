@@ -35,13 +35,13 @@ router.get('/', async (req, res, next) => {   // call restAPI to get Bearer Toke
 .then((data) => {
   console.log('Success:', data);
   global.DB_token = data.access_token;
-  console.log('golbal:',  global.DB_token);
+  //console.log('golbal:',  global.DB_token);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
         
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Welcome to ProductRUS' });
 });  
   
 

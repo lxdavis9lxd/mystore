@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Empolyee Add</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+  <body>
+    <h1>Add a Customer</h1>
+    <div class="empadd">
+      <form  name="empaddform" action="/empadd" method="POST">
+        <input type="text" placeholder="last Name" name="lastName" size="20">
+        <input type="text" placeholder="first Name" name="firstName" size="20">
+        <input type="text" placeholder="extension" name="extension" size="20">
+        <input type="text" placeholder="email" name="email" size="50">
+        <input type="text" placeholder="office Code" name="officeCode" size="4">
+        <input type="text" placeholder="reports To" name="reportsTo" size="20">
+        <input type="text" placeholder="job Title" name="jobTitle" size="20">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
