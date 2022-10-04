@@ -1,5 +1,6 @@
 var express = require('express');
 var emp = require('request');
+var parseUrl = require('body-parser')
 const fetch = require('node-fetch');
 var router = express.Router();
 var functions = require('../functions/db_sign_in');
@@ -9,7 +10,7 @@ var functions = require('../functions/db_sign_in');
 //};
 var holdres = '';
 console.log('before');
-router.get('/', async (req, res, next) => {
+router.get('/employeeslistall', async (req, res, next) => {
     const fetch = require('node-fetch');
         console.log('hit it',global.DB_token);  
         var empurl ='http://localhost:8084/api/v1/employees/';
@@ -37,12 +38,17 @@ router.get('/', async (req, res, next) => {
   console.error('Error:', error);
 });
         
-
-
-
-        
+     
 });             
             
+router.get('/empadd', async (req, res, next) => { holdres= res.render('empadd' ) });
+let encodeUrl = parseUrl.urlencoded({ extended: false });
+router.post('/empadd', encodeUrl, (req, res) => {  
+    console.log('Form request:', req.body)
+    res.sendStatus(200)
+  });
+  
+ // holdres= res.render('empadd' );
 
         module.exports = router
 

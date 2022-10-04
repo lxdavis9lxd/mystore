@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/getcustlistbyid',customerbyidRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/getemployeeslist', employeesRouter);
+app.use('/', employeesRouter);
 app.use('/', customerRouter);
 //app.use('getcustlisttest', listtestRouter);
 //app.use('/',byidtestRouter);
