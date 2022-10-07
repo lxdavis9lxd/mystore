@@ -46,45 +46,17 @@ router.get('/emplistall', async (req, res, next) => {
 
 // list all by id empolyees ******************************* 
 var rtnres = '';
-console.log('before');
-router.get('/emplistbyid', async (req, res, next) => {
-    const fetch = require('node-fetch');
-        console.log('hit it',global.DB_token);  
-        var empurl ='http://localhost:8084/api/v1/employees/';
-        //var empurl ='http://localhost:8084/api/v1/customers/?pageNo=1&pageSize=100';
-        var bearer = 'Bearer ' +  global.DB_token;
-        const result = await fetch(empurl,(
-        empurl,{
-        method: 'GET',
-        withCredentials: true,
-        credentials: 'include',
-        headers: {
-            'Authorization': bearer,
-            'Content-Type': 'application/json' }
-}))
-.then((response) => response.json())
-.then((data) => {
-  console.log('Success:', data);
-  //global.DB_token = data.access_token;
-  console.log('golbal:',  global.DB_token);
-  rtnres= res.render('emplistall', { resultdata:  data} )
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+console.log('before byid');
+//load emplistbyid page
+router.get('/emplistbyid', async (req, res, next) => { rtnres= res.render('emplistbyid',{ resultdata:  ""})});
+// get emplistbyid
+router.post('/emplistbyid', async (req, res, next) => {
+   
+  const fetch = require('node-fetch');
+        varEmpNbr = req.body.employeeNumber
+        //console.log('by ID',varEmpNbr.toString());  
         
-     
-}); 
-// End of list employee by id ***********************
-
-// list search by id empolyees ******************************* 
-var rtnres = '';
-console.log('before');
-router.get('/empsearch', async (req, res, next) => {
-    const fetch = require('node-fetch');
-        console.log('hit it',global.DB_token);  
-        var empurl ='http://localhost:8084/api/v1/employees/';
-        //var empurl ='http://localhost:8084/api/v1/customers/?pageNo=1&pageSize=100';
+        var empurl ='http://localhost:8084/api/v1/employees/' + varEmpNbr.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const result = await fetch(empurl,(
         empurl,{
@@ -98,9 +70,8 @@ router.get('/empsearch', async (req, res, next) => {
 .then((response) => response.json())
 .then((data) => {
   console.log('Success:', data);
-  //global.DB_token = data.access_token;
   console.log('golbal:',  global.DB_token);
-  rtnres= res.render('empsearch', { resultdata:  data} )
+  rtnres= res.render('emplistbyid', { resultdata:  data} )
 })
 .catch((error) => {
   console.error('Error:', error);
@@ -109,6 +80,11 @@ router.get('/empsearch', async (req, res, next) => {
      
 }); 
 // End of search employee by id ***********************
+
+
+
+
+
 
 // Add Employee *******************************          
 router.get('/empadd', async (req, res, next) => { rtnres= res.render('empadd' ) });
@@ -122,7 +98,7 @@ router.post('/empadd', encodeUrladd, (req, res) => {
         var bearer = 'Bearer ' +  global.DB_token;
         const result =  fetch(empurl,(
         empurl,{
-        method: 'post',
+        method: 'get',
         withCredentials: true,
         credentials: 'include',
         headers: {
