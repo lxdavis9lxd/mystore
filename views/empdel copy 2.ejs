@@ -6,8 +6,6 @@
   </head>
   <%- include('../Partials/topNav.ejs') %>
  <body>
-  status: <%=resultstatus%>
-    
   <table>
     <div class="empsearch">
       
@@ -20,6 +18,7 @@
         <tr>
         <td><button type="submit">Search</button></td>
     </tr>
+     
     
     
     </div>
@@ -49,9 +48,7 @@
                     <th>Job Title</th>
                  
                 </tr>
-                
                 <%
-
                if( resultdata.length!=0){
               var i=1;
               resultdata.records.forEach(function(record){
@@ -67,17 +64,16 @@
                   <td><%=record.officeCode%></td>
                   <td><%=record.jobTitle%></td>
                   <td> <form  name="empdel" action="/empdel" method="post">
-                    <input type="hidden"  name="employeeNumber" size="20" value='<%=record.employeeNumber%>' > 
+                    <input type="text"  name="employeeNumber" size="20" value='<%=record.employeeNumber%>' > 
                     <button type="submit">Delete</button>
                     </form>
                   </td>
-                  <td>Status </td>
                     
                   </tr>
                     <%  i++; }) %>
                     <% } else{ %>
                     <tr>
-                        <td colspan="7"><%=resultdata.message%></td>
+                        <td colspan="7">No Data Found</td>
                     </tr>
                     <% } %>
             </table>

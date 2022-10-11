@@ -91,7 +91,7 @@ router.post('/empsearch', async (req, res, next) => {
    
   const fetch = require('node-fetch');
         varempsearch = req.body.empsearch
-        console.log('by ID',req.body.empsearch);  
+        console.log('search',req.body.empsearch);  
         
         var empurl ='http://localhost:8084/api/v1/employees/search/' + varempsearch.toString();
         var bearer = 'Bearer ' +  global.DB_token;
@@ -202,17 +202,17 @@ router.post('/empadd', encodeUrlupdt, (req, res) => {
 
 
 // del Employee *******************************          
-
+/*
 var rtnres = '';
 console.log('before byid');
 //load emplistbyid page
-router.get('/empdel', async (req, res, next) => { rtnres= res.render('empdel',{ resultdata:  ""})});
+//router.get('/empdel', async (req, res, next) => { rtnres= res.render('empdel',{ resultdata:  ""})});
 // get emplistbyid
-router.post('/empdelsearch', async (req, res, next) => {
+//router.post('/empdelsearch', async (req, res, next) => {
    
-  const fetch = require('node-fetch');
+ /* const fetch = require('node-fetch');
         varempsearch = req.body.empdelsearch
-        console.log('by ID',req.body.empdelsearch);  
+        console.log('search del ',req.body.empdelsearch);  
         
         var empurl ='http://localhost:8084/api/v1/employees/search/' + varempsearch.toString();
         var bearer = 'Bearer ' +  global.DB_token;
@@ -234,16 +234,17 @@ router.post('/empdelsearch', async (req, res, next) => {
 .catch((error) => {
   console.error('Error:', error);
 })});
-       
-router.post('/empdel', async (req, res, next) => {
-   
+ 
+router.get('/empdel', async (req, res, next) => {
+  console.log('here in the start of dele', req.method); 
+  /*
   const fetch = require('node-fetch');
         varempdel = req.body.employeeNumber
-        console.log('by ID',req.body.employeeNumber);  
+        console.log('del ',req.body.employeeNumber);  
         
         var empurl ='http://localhost:8084/api/v1/employees/' + varempdel.toString();
         var bearer = 'Bearer ' +  global.DB_token;
-        const result = await fetch(empurl,(
+        const result =  fetch(empurl,(
         empurl,{
         method: 'delete',
         withCredentials: true,
@@ -256,7 +257,7 @@ router.post('/empdel', async (req, res, next) => {
 .then((data) => {
   console.log('Success:', data.message);
   console.log('golbal:',  global.DB_token);
-  //rtnres= res.render('empdel', { resultdata:  data} )
+  rtnres= res.render('empdel', { resultdata:  data} )
 })
 .catch((error) => {
   console.error('Error:', error);
@@ -265,7 +266,7 @@ router.post('/empdel', async (req, res, next) => {
 //const fetch = require('node-fetch');
         //varempsearch = req.body.empdelsearch
         //console.log('by ID',req.body.empdelsearch);  
-        
+/*        
         var empurl ='http://localhost:8084/api/v1/employees/search/' + varempsearch.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const resultresearch = await fetch(empurl,(
@@ -281,14 +282,14 @@ router.post('/empdel', async (req, res, next) => {
 .then((data) => {
   console.log('Success:', data);
   console.log('golbal:',  global.DB_token);
-  rtnres= res.render('empdel', { resultdata:  data} )
+ // rtnres= res.render('empdelrecord', { resultdata:  data} )
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 
 }); 
-
+*/
 // End of del employee ***********************
 
         module.exports = router
