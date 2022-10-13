@@ -6,7 +6,7 @@ var router = express.Router();
 var retresposne = '';
 var functions = require('../functions/db_sign_in');
 if ( global.DB_token = 'notoken') {
-     console.log('setting Auth token')
+     //console.log('setting Auth token')
      functions.data.db_sign_in();   
 };
 //console.log('before');
@@ -17,7 +17,7 @@ if ( global.DB_token = 'notoken') {
 
 router.get('/getcustlist', async (req, res, next) => {
     const fetch = require('node-fetch');
-        console.log('hit it');  
+       // console.log('hit it');  
         var url ='http://localhost:8084/api/v1/customers/?pageNo=1&pageSize=100';
         var bearer = 'Bearer ' +  global.DB_token;  //bearer token to use to connect to the database
         const result = await fetch(url,(
@@ -46,7 +46,7 @@ router.get('/getcustlistbyid', async (req, res, next) => {
   //console.log('r',router.all);  
   const fetch = require('node-fetch');
 
-  console.log('hit it getcustlistbyid'); 
+ // console.log('hit it getcustlistbyid'); 
   //var url ='http://localhost:8084/api/v1/customers/?pageNo=1&pageSize=5'; 
   var url ='http://localhost:8084/api/v1/customers/103';
  

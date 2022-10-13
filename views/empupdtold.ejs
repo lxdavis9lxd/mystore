@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+  <body>
+    <h1><%= title %></h1>
+    <table>
+      <div class="empadd">
+        
+        <form  name="empaddform" action="/empadd" method="POST">
+          <tr>
+            <td><label>Unique Record ID (6000-6999): </label> </td>
+            <td><input type="text" placeholder=6000 name="employeeNumber" size="20" required> </td><br>
+          </tr>
+          <tr>
+          <td><label>Last Name: </label> </td>
+          <td><input type="text" placeholder="last Name" name="lastName" size="20"> </td><br>
+        </tr>
+        <tr> 
+         <td> <label>First Name: </label> </td>
+         <td><input type="text" placeholder="first Name" name="firstName" size="20"></td> <br>
+        </tr>
+        <tr>
+          <td><label>Phone: </label> </td> 
+          <td><input type="text" placeholder="extension" name="extension" size="20"> </td><br>
+        </tr>
+        <tr>
+            <td><label>Email: </label>  </td> 
+            <td><input type="email" placeholder="email" name="email" size="50"> </td><br> 
+        </tr>
+        <tr>
+            <td><label>Office Code: </label> </td>  
+            <td><input type="text" placeholder="office Code" name="officeCode" size="4" required></td><br>
+        </tr>
+        <tr>
+            <td><label>ReportTo Code: </label></td>  
+            <td><input type="text" placeholder="reports To" name="reportsTo" size="20" required></td><br> 
+        </tr>
+        <tr>
+            <td><label>Job Title: </label></td>    
+            <td><input type="text" placeholder="job Title" name="jobTitle" size="20"> </td>
+        </tr>
+          <td><button type="submit">Update</button></td>
+        </form>
+      
+      </div>
+    </table>
+  </body>
+</html>

@@ -6,13 +6,13 @@ var cred ={
   "username":"root",
   "password":"rockwell"
        }
-
+ var rtnres =''
 
 // function to log in to the db
 var methods = {
-  dbCallsGet:  function(dburl,dbstring,dbmethod,dbbody) { 
+  dbCallsGet:  async  function(dburl,dbstring,dbmethod,dbbody,rtnejs) { 
      
-      console.log('before dbcall',dburl,dbstring,dbmethod,dbbody);
+      console.log('before dbcall',dburl,dbstring,dbmethod,dbbody,rtnejs);
         var empurl = dburl + dbstring;
         var bearer = 'Bearer ' +  global.DB_token;
         const result =   fetch (empurl,( 
@@ -31,11 +31,12 @@ var methods = {
   //console.log('Success 41:',data);
   
   global.DB_data = data;
-  console.log('golbal:' , global.DB_data);
+  rtnResults = data;
+  //console.log('golbal:' , global.DB_data);
   //var resultstatus = response.message
-  //rtnres= res.render('empdel', { resultdata:  data, resultstatus: data.totalCount} )
-  console.log('aft dbcall before exit' );
-  return data;
+  //rtnres = res.render(rtnejs, { resultdata:  data, resultstatus: data.totalCount} )
+  //console.log('aft dbcall before exit', rtnResults);
+  return  rtnResults;
 })
 .catch((error) => {
   console.error('Error:', error);

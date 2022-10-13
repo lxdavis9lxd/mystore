@@ -13,9 +13,9 @@ if ( global.DB_token = 'notoken') {
 
 // list all empolyees ******************************* 
 var rtnres = '';
-console.log('before');
+//console.log('before');
 router.get('/emplistall', async (req, res, next) => {
-    const fetch = require('node-fetch');
+   // const fetch = require('node-fetch');
         console.log('hit it',global.DB_token);  
         var empurl ='http://localhost:8084/api/v1/employees/';
         //var empurl ='http://localhost:8084/api/v1/customers/?pageNo=1&pageSize=100';
@@ -46,7 +46,7 @@ router.get('/emplistall', async (req, res, next) => {
 
 // list all by id empolyees ******************************* 
 var rtnres = '';
-console.log('before byid');
+//console.log('before byid');
 //load emplistbyid page
 router.get('/emplistbyid', async (req, res, next) => { rtnres= res.render('emplistbyid',{ resultdata:  ""})});
 // get emplistbyid
@@ -83,7 +83,7 @@ router.post('/emplistbyid', async (req, res, next) => {
 
 // empolyees Search******************************* 
 var rtnres = '';
-console.log('before byid');
+//console.log('before byid');
 //load emplistbyid page
 router.get('/empsearch', async (req, res, next) => { rtnres= res.render('empsearch',{ resultdata:  ""})});
 // get emplistbyid
@@ -153,7 +153,7 @@ router.post('/empadd', encodeUrladd, (req, res) => {
    //res.sendStatus(200)
   });
   // End of add employee ***********************
- 
+ /*
   // update Employee *******************************          
 router.get('/empupdt', async (req, res, next) => { rtnres= res.render('empadd' ) });
 let encodeUrlupdt = parseUrl.json({ extended: false });
@@ -170,7 +170,7 @@ router.post('/empadd', encodeUrlupdt, (req, res) => {
       'jobTitle': req.body.jobTitle
 
 }  );
- */
+
     
     const fetch = require('node-fetch');
        // console.log('emp post to db',global.DB_token);  
@@ -198,6 +198,7 @@ router.post('/empadd', encodeUrlupdt, (req, res) => {
 
    //res.sendStatus(200)
   });
+  */
   // End of updt employee ***********************
 
 

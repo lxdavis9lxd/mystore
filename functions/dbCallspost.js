@@ -6,16 +6,16 @@ var cred ={
   "username":"root",
   "password":"rockwell"
        }
-
+//var rtnres = '';
 
 // function to log in to the db
 var methods = {
-  dbCallsPost:  function(dburl,dbstring,dbmethod,dbbody) { 
+  dbCallsPost:  async function(dburl,dbstring,dbmethod,dbbody) { 
      
       console.log('before dbcall',dburl,dbstring,dbmethod,dbbody);
         var empurl = dburl + dbstring;
         var bearer = 'Bearer ' +  global.DB_token;
-        const result =   fetch (empurl,( 
+        const result = await  fetch (empurl,( 
         empurl,{
         method: dbmethod,
         withCredentials: true,
@@ -28,20 +28,25 @@ var methods = {
 .then((response) => response.json())
 .then((data) => {
   global.DB_data = data;
-  //console.log('Success 41:',data);
-  
+  let DataToReturn = data;
+    //console.log('Success 41:',data);
+    console.log('Success 41a:',DataToReturn);
   global.DB_data = data;
-  console.log('golbal:' , global.DB_data);
+  //console.log('golbal:' , global.DB_data);
   //var resultstatus = response.message
   //rtnres= res.render('empdel', { resultdata:  data, resultstatus: data.totalCount} )
-  console.log('aft dbcall before exit' );
-  return data;
+  
+  console.log('aft dbcall before exit');
+  var sqlServerObj = {
+    resultx: data,
+};
+  return "xxcv";
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 
 }};
-
+//console.log('results');
 exports.data = methods;
 

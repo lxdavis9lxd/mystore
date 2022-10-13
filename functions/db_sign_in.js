@@ -12,9 +12,9 @@ var cred ={
 var methods = {
   db_sign_in: function() {
 
-      console.log('before');
+     // console.log('before');
       const fetch = require('node-fetch');
-        console.log('hit it');  
+      //  console.log('hit it');  
         var dbtoken ='http://localhost:8084/api/v1/token';
         //var bearer = 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJ1c2VyIjoicm9vdCJ9LCJpYXQiOjE2NjQ0MTIxNDgsImV4cCI6MTY2NDQ0ODE0OH0.kSIhD1wreJ32HdhFcBdBwyWZ_47hl8mvc0j1JFDsnXY';
         //var holdres = res;
