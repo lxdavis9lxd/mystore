@@ -12,7 +12,7 @@ var cred ={
 var methods = {
   dbCallsGet:  async  function(dburl,dbstring,dbmethod,dbbody,rtnejs) { 
      
-      console.log('before dbcall',dburl,dbstring,dbmethod,dbbody,rtnejs);
+     // console.log('before dbcall',dburl,dbstring,dbmethod,dbbody,rtnejs);
         var empurl = dburl + dbstring;
         var bearer = 'Bearer ' +  global.DB_token;
         const result =   fetch (empurl,( 

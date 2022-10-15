@@ -53,7 +53,7 @@
               <tr>
                   <td> </td>
                   <td><%=i; %></td>
-                  <form  name="empupdt" action="/empupdt" method="post" > 
+                  <form  name="empupdt" action="/empupdtrec" method="post" > 
                     <td> <input type="text"  name="officeCode_Value" size="10" value='<%=record.officeCode_Value%>' ></td>
                     <td><%=record.employeeNumber%></td>
                     <td> <input type="text"  name="lastName" size="10" value='<%=record.lastName%>' ></td>
@@ -63,9 +63,9 @@
                     <td> <input type="text"  name="officeCode" size="4" value='<%=record.officeCode%>' ></td>
                     <td> <input type="text"  name="jobTitle" size="20" value='<%=record.jobTitle%>' ></td>
                     <td> 
-                      <input type="hidden"  name="employeeNumber" size="6" value='<%=record.employeeNumber%>' > 
+                      <input type="hidden"  name="employeeNumber" size="6" value=<%=record.employeeNumber%>> 
                       <button type="submit">Update</button>
-                      </form>
+                   </form>
                     </td>
                     </tr>
                     <%  i++; }) %>
