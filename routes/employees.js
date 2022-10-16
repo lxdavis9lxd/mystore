@@ -14,6 +14,7 @@ if ( global.DB_token = 'notoken') {
 // list all empolyees ******************************* 
 var rtnres = '';
 //console.log('before');
+/*
 router.get('/emplistall', async (req, res, next) => {
    // const fetch = require('node-fetch');
         console.log('hit it',global.DB_token);  
@@ -42,6 +43,7 @@ router.get('/emplistall', async (req, res, next) => {
         
      
 }); 
+*/
 // End of list employee ***********************
 
 // list all by id empolyees ******************************* 
@@ -85,8 +87,9 @@ router.post('/emplistbyid', async (req, res, next) => {
 var rtnres = '';
 //console.log('before byid');
 //load emplistbyid page
-router.get('/empsearch', async (req, res, next) => { rtnres= res.render('empsearch',{ resultdata:  ""})});
+//router.get('/empsearch', async (req, res, next) => { rtnres= res.render('empsearch',{ resultdata:  ""})});
 // get emplistbyid
+/*
 router.post('/empsearch', async (req, res, next) => {
    
   const fetch = require('node-fetch');
@@ -116,13 +119,14 @@ router.post('/empsearch', async (req, res, next) => {
         
      
 }); 
-
+*/
 // End Search  Employee *******************************  
 
 
 // Add Employee *******************************          
 router.get('/empadd', async (req, res, next) => { rtnres= res.render('empadd' ) });
 let encodeUrladd = parseUrl.json({ extended: false });
+/*
 router.post('/empadd', encodeUrladd, (req, res) => {  
     console.log('Form request:', req.body)
      
@@ -152,8 +156,9 @@ router.post('/empadd', encodeUrladd, (req, res) => {
 
    //res.sendStatus(200)
   });
+   /*
   // End of add employee ***********************
- /*
+
   // update Employee *******************************          
 router.get('/empupdt', async (req, res, next) => { rtnres= res.render('empadd' ) });
 let encodeUrlupdt = parseUrl.json({ extended: false });

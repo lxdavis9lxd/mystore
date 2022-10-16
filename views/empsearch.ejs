@@ -6,10 +6,11 @@
   </head>
   <%- include('../Partials/topNav.ejs') %>
  <body>
+  status: <%=resultstatus%>
   <table>
-    <div class="emplistbyid">
+    <div class="empsearch">
       
-      <form  name="empbyidform" action="/empsearch" method="post">
+      <form  name="empsearch" action="/empsearch" method="post">
         <tr>
           <td><label>Search Value:  </label> </td>
           <td><input type="text" placeholder=6000 name="empsearch" size="20" required> </td> 

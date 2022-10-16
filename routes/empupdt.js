@@ -23,53 +23,6 @@ if ( global.DB_token = 'notoken') {
 };
 //#########################################################
 var rtnres =''
-
-
- // function to to get API Gets
-   async function dbCallsGetv1 (dburl,dbstring,dbmethod,dbbody,rtnejs) { 
-     
-      console.log('function get dbcall',dburl,dbstring,dbmethod,dbbody,rtnejs);
-        var empurl = dburl + dbstring;
-        var bearer = 'Bearer ' +  global.DB_token;
-        const result =  await fetch (empurl,( 
-        empurl,{
-        method: dbmethod,
-        withCredentials: true,
-        credentials: 'include',
-        headers: {
-            'Authorization': bearer,
-            'Content-Type': 'application/json' }
-            //body:dbbody
-}))
-.then((response) => response.json())
-.then((data) => {
-   
-  global.DB_data = data;
-  //console.log('Success 41:',data);
-  
-  global.DB_data = data;
-  rtnResults = data;
-  //console.log('golbal:' , global.DB_data);
-  //var resultstatus = response.message
-  //rtnres = res.render(rtnejs, { resultdata:  data, resultstatus: data.totalCount} )
-  //console.log('aft dbcall before exit', rtnResults);
-  return  rtnResults;
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-
-};
-
-
-
-
-
-
-
-
-
-
 //################################################################
 
 // Update Employee *******************************          
@@ -119,9 +72,9 @@ router.post('/empupdtrec', urlencodedParser, async (req, res, next) => {
                     dbstring =  initSearch
                     dburl='http://localhost:8084/api/v1/employees/search/';
                     dbmethod='get';
-                    dbCallsGetv1(dburl,dbstring,dbmethod,dbbody,rtnejs) 
+                    dbcallsget.data.dbCallsGet(dburl,dbstring,dbmethod,dbbody,rtnejs) 
                     .then((data) =>  {  
-                      console.log(' dbCallsGetv1 then 93' ,rtnResults.records); 
+                      console.log(' dbcallsget.data.dbCallsGet then 93' ,rtnResults.records); 
                       statusmesg = "Record Updated: " +  varempupdt
                       rtnres= res.render('empupdt', { resultdata:  rtnResults, resultstatus: statusmesg} );
                   })
