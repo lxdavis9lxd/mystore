@@ -31,7 +31,7 @@ var rtnres = '';
 
 
 //load empudpt page **********************************
-router.get('/empadd', async (req, res, next) => { rtnres= res.render('empupdt',{ resultdata:  "" , resultstatus: ""})});
+router.get('/empadd', async (req, res, next) => { rtnres= res.render('empadd',{ resultdata:  "" , resultstatus: ""})});
 //*************************************** */
 
  //  Call Add function
