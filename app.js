@@ -51,5 +51,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+//set the IP address for the rest API
+global.API_IP ='108.65.159.229'
 module.exports = app;

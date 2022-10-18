@@ -4,7 +4,7 @@ var emp = require('request');
 var router = express.Router();
 var cred ={
   "username":"root",
-  "password":"rockwell"
+  "password":"bdpA!2o22"
        }
 
 
@@ -15,7 +15,8 @@ var methods = {
      // console.log('before');
       const fetch = require('node-fetch');
       //  console.log('hit it');  
-        var dbtoken ='http://localhost:8084/api/v1/token';
+        //var dbtoken ='http://global.API_IP:8084/api/v1/token';
+        var dbtoken ='http://108.65.159.229:8084/api/v1/token';
         //var bearer = 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJ1c2VyIjoicm9vdCJ9LCJpYXQiOjE2NjQ0MTIxNDgsImV4cCI6MTY2NDQ0ODE0OH0.kSIhD1wreJ32HdhFcBdBwyWZ_47hl8mvc0j1JFDsnXY';
         //var holdres = res;
         const result =  fetch(dbtoken,(

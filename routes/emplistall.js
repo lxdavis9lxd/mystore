@@ -15,6 +15,7 @@ var router = express.Router();
 var functions = require('../functions/db_sign_in');
 var dbcallsget = require('../functions/dbCallsget');
 var dbcallspost = require('../functions/dbCallsPost');
+
 if ( global.DB_token = 'notoken') {
      //console.log('setting Auth token')
      functions.data.db_sign_in();   
@@ -26,8 +27,9 @@ var rtnejs='emplistall'
 router.get('/emplistall', async (req, res, next) => {
 
    console.log('emplistall',req.body.empsearch);
-
-   dburl='http://localhost:8084/api/v1/employees/';
+   console.log('ip', global.API_IP )
+  //dburl='http://' + global.API_IP +':8084/api/v1/employees/';
+   dburl='http://108.65.159.229:8084/api/v1/employees/';
    dbstring=  ''
    dbmethod='get';
    dbbody='';

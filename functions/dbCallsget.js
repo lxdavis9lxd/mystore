@@ -29,7 +29,7 @@ var methods = {
 .then((data) => {
 
 global.DB_data = data;
-//console.log('Success 41:',data);
+console.log('Success 41:',global.DB_token);
 
 global.DB_data = data;
 rtnResults = data;

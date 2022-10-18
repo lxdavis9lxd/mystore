@@ -33,7 +33,7 @@ router.get('/empdel', async (req, res, next) => { rtnres= res.render('empdel',{ 
 router.post('/empdelsearch', async (req, res, next) => {
  // populate the varibles **************************
   console.log('call dbcalls')
-    dburl='http://localhost:8084/api/v1/employees/search/';
+   dburl='http://' + global.API_IP +':8084/api/v1/employees/search/';
     dbstring=req.body.empdelsearch.toString();
     initSearch = req.body.empdelsearch.toString();
     dbmethod='get';
@@ -58,7 +58,7 @@ router.post('/empdelsearch', async (req, res, next) => {
 router.post('/empdel', async (req, res, next) => {
   // populate the varibles **************************
    console.log('call dbcalls')
-     dburl='http://localhost:8084/api/v1/employees/';
+    dburl='http://' + global.API_IP +':8084/api/v1/employees/';
      varempdel = req.body.employeeNumber
      dbstring=varempdel.toString();
      console.log('dbstring',dbstring)
@@ -84,7 +84,7 @@ router.post('/empdel', async (req, res, next) => {
 //router.post('/empdelsearch', async (req, res, next) => {
   // populate the varibles **************************
     console.log('Refresh');
-     dburl='http://localhost:8084/api/v1/employees/search/';
+    dburl='http://' + global.API_IP +':8084/api/v1/employees/search/';
      dbstring=initSearch.toString();
      console.log('Refresh', dbstring);
      dbmethod='get';
