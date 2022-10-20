@@ -27,8 +27,8 @@ var rtnejs='emplistall'
 router.get('/emplistall', async (req, res, next) => {
 
    console.log('emplistall',req.body.empsearch);
-   console.log('ip', global.API_IP )
-  //dburl='http://' + global.API_IP +':8084/api/v1/employees/';
+   console.log('ip', 108.65.159.229 )
+  //dburl='http://' + 108.65.159.229 +':8084/api/v1/employees/';
    dburl='http://108.65.159.229:8084/api/v1/employees/';
    dbstring=  ''
    dbmethod='get';

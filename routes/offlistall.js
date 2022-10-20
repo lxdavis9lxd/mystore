@@ -27,7 +27,7 @@ router.get('/offlistall', async (req, res, next) => {
 
    console.log('offlistall',req.body.empsearch);
 
-  dburl='http://' + global.API_IP +':8084/api/v1/offices/?pageNo=1&pageSize=100';
+  dburl='http://' + 108.65.159.229 +':8084/api/v1/offices/?pageNo=1&pageSize=100';
    dbstring=  ''
    dbmethod='get';
    dbbody='';

@@ -18,7 +18,7 @@ if ( global.DB_token = 'notoken') {
 router.get('/getcustlist', async (req, res, next) => {
     const fetch = require('node-fetch');
        // console.log('hit it');  
-        var url ='http://global.API_IP:8084/api/v1/customers/?pageNo=1&pageSize=100';
+        var url ='http://108.65.159.229:8084/api/v1/customers/?pageNo=1&pageSize=100';
         var bearer = 'Bearer ' +  global.DB_token;  //bearer token to use to connect to the database
         const result = await fetch(url,(
         url,{
@@ -47,8 +47,8 @@ router.get('/getcustlistbyid', async (req, res, next) => {
   const fetch = require('node-fetch');
 
  // console.log('hit it getcustlistbyid'); 
-  //var url ='http://global.API_IP:8084/api/v1/customers/?pageNo=1&pageSize=5'; 
-  var url ='http://global.API_IP:8084/api/v1/customers/103';
+  //var url ='http://108.65.159.229:8084/api/v1/customers/?pageNo=1&pageSize=5'; 
+  var url ='http://108.65.159.229:8084/api/v1/customers/103';
  
   var bearer = 'Bearer ' +  global.DB_token;  //bearer token to use to connect to the database
   const result = await fetch(url,(

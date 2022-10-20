@@ -18,8 +18,8 @@ var rtnres = '';
 router.get('/emplistall', async (req, res, next) => {
    // const fetch = require('node-fetch');
         console.log('hit it',global.DB_token);  
-        var empurl ='http://global.API_IP:8084/api/v1/employees/';
-        //var empurl ='http://global.API_IP:8084/api/v1/customers/?pageNo=1&pageSize=100';
+        var empurl ='http://108.65.159.229:8084/api/v1/employees/';
+        //var empurl ='http://108.65.159.229:8084/api/v1/customers/?pageNo=1&pageSize=100';
         var bearer = 'Bearer ' +  global.DB_token;
         const result = await fetch(empurl,(
         empurl,{
@@ -58,7 +58,7 @@ router.post('/emplistbyid', async (req, res, next) => {
         varEmpNbr = req.body.employeeNumber
         //console.log('by ID',varEmpNbr.toString());  
         
-        var empurl ='http://global.API_IP:8084/api/v1/employees/' + varEmpNbr.toString();
+        var empurl ='http://108.65.159.229:8084/api/v1/employees/' + varEmpNbr.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const result = await fetch(empurl,(
         empurl,{
@@ -96,7 +96,7 @@ router.post('/empsearch', async (req, res, next) => {
         varempsearch = req.body.empsearch
         console.log('search',req.body.empsearch);  
         
-        var empurl ='http://global.API_IP:8084/api/v1/employees/search/' + varempsearch.toString();
+        var empurl ='http://108.65.159.229:8084/api/v1/employees/search/' + varempsearch.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const result = await fetch(empurl,(
         empurl,{
@@ -132,7 +132,7 @@ router.post('/empadd', encodeUrladd, (req, res) => {
      
     const fetch = require('node-fetch');
        // console.log('emp post to db',global.DB_token);  
-        var empurl ='http://global.API_IP:8084/api/v1/employees';
+        var empurl ='http://108.65.159.229:8084/api/v1/employees';
         var bearer = 'Bearer ' +  global.DB_token;
         const result =  fetch(empurl,(
         empurl,{
@@ -179,7 +179,7 @@ router.post('/empadd', encodeUrlupdt, (req, res) => {
     
     const fetch = require('node-fetch');
        // console.log('emp post to db',global.DB_token);  
-        var empurl ='http://global.API_IP:8084/api/v1/employees';
+        var empurl ='http://108.65.159.229:8084/api/v1/employees';
         var bearer = 'Bearer ' +  global.DB_token;
         const result =  fetch(empurl,(
         empurl,{
@@ -220,7 +220,7 @@ console.log('before byid');
         varempsearch = req.body.empdelsearch
         console.log('search del ',req.body.empdelsearch);  
         
-        var empurl ='http://global.API_IP:8084/api/v1/employees/search/' + varempsearch.toString();
+        var empurl ='http://108.65.159.229:8084/api/v1/employees/search/' + varempsearch.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const result = await fetch(empurl,(
         empurl,{
@@ -248,7 +248,7 @@ router.get('/empdel', async (req, res, next) => {
         varempdel = req.body.employeeNumber
         console.log('del ',req.body.employeeNumber);  
         
-        var empurl ='http://global.API_IP:8084/api/v1/employees/' + varempdel.toString();
+        var empurl ='http://108.65.159.229:8084/api/v1/employees/' + varempdel.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const result =  fetch(empurl,(
         empurl,{
@@ -273,7 +273,7 @@ router.get('/empdel', async (req, res, next) => {
         //varempsearch = req.body.empdelsearch
         //console.log('by ID',req.body.empdelsearch);  
 /*        
-        var empurl ='http://global.API_IP:8084/api/v1/employees/search/' + varempsearch.toString();
+        var empurl ='http://108.65.159.229:8084/api/v1/employees/search/' + varempsearch.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const resultresearch = await fetch(empurl,(
         empurl,{
