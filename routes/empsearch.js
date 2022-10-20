@@ -38,7 +38,7 @@ router.get('/empsearch', async (req, res, next) => { rtnres= res.render('empsear
 router.post('/empsearch',  async (req, res, next) => {
     console.log('empsearch',req.body.empsearch);
  
-   dburl='http://' + 108.65.159.229 +':8084/api/v1/employees/search/';
+   dburl='http://' + global.db_token_ip +':8084/api/v1/employees/search/';
     dbstring=  req.body.empsearch
     console.log('call dbcalls', dbstring)
     initSearch = req.body.empsearch //.toString();
@@ -58,7 +58,7 @@ router.post('/empsearch',  async (req, res, next) => {
 router.post('/empupdtrec', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      console.log('call dbcalls empudt1')
-    dburl='http://' + 108.65.159.229 +':8084/api/v1/employees/';
+    dburl='http://' + global.db_token_ip +':8084/api/v1/employees/';
      varempupdt = req.body.employeeNumber
      dbstring=varempupdt.toString();
      dbmethod='patch';
@@ -70,7 +70,7 @@ router.post('/empupdtrec', urlencodedParser, async (req, res, next) => {
  //refreash page ***********************************
                     dbbody =''
                     dbstring =  initSearch
-                   dburl='http://' + 108.65.159.229 +':8084/api/v1/employees/search/';
+                   dburl='http://' + global.db_token_ip +':8084/api/v1/employees/search/';
                     dbmethod='get';
                     dbcallsget.data.dbCallsGet(dburl,dbstring,dbmethod,dbbody,rtnejs) 
                     .then((data) =>  {  

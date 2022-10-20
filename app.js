@@ -52,5 +52,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 //set the IP address for the rest API
-108.65.159.229 ='  108.65.159.229'
+global.db_token_ip ='  108.65.159.229'
 module.exports = app;
