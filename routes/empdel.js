@@ -14,10 +14,10 @@ var router = express.Router();
 var functions = require('../functions/db_sign_in');
 var dbcallsget = require('../functions/dbCallsget');
 var dbcallspost = require('../functions/dbCallsPost');
-if ( global.DB_token = 'notoken') {
+//if ( global.DB_token = 'notoken') {
      //console.log('setting Auth token')
      functions.data.db_sign_in();   
-};
+//};
 
 
 
@@ -33,7 +33,7 @@ router.get('/empdel', async (req, res, next) => { rtnres= res.render('empdel',{ 
 router.post('/empdelsearch', async (req, res, next) => {
  // populate the varibles **************************
   console.log('call dbcalls')
-   dburl='http://' + global.db_token_ip +':8084/api/v1/employees/search/';
+   dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/search/';
     dbstring=req.body.empdelsearch.toString();
     initSearch = req.body.empdelsearch.toString();
     dbmethod='get';
@@ -58,7 +58,7 @@ router.post('/empdelsearch', async (req, res, next) => {
 router.post('/empdel', async (req, res, next) => {
   // populate the varibles **************************
    console.log('call dbcalls')
-    dburl='http://' + global.db_token_ip +':8084/api/v1/employees/';
+    dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/';
      varempdel = req.body.employeeNumber
      dbstring=varempdel.toString();
      console.log('dbstring',dbstring)
@@ -84,7 +84,7 @@ router.post('/empdel', async (req, res, next) => {
 //router.post('/empdelsearch', async (req, res, next) => {
   // populate the varibles **************************
     console.log('Refresh');
-    dburl='http://' + global.db_token_ip +':8084/api/v1/employees/search/';
+    dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/search/';
      dbstring=initSearch.toString();
      console.log('Refresh', dbstring);
      dbmethod='get';

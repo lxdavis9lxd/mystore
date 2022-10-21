@@ -15,10 +15,10 @@ var router = express.Router();
 var functions = require('../functions/db_sign_in');
 var dbcallsget = require('../functions/dbCallsget');
 var dbcallspost = require('../functions/dbCallsPost');
-if ( global.DB_token = 'notoken') {
+//if ( global.DB_token = 'notoken') {
      //console.log('setting Auth token')
      functions.data.db_sign_in();   
-};
+//};
 
 var rtnejs='offlistall'
 
@@ -27,7 +27,7 @@ router.get('/offlistall', async (req, res, next) => {
 
    console.log('offlistall',req.body.empsearch);
 
-  dburl='http://' + global.db_token_ip +':8084/api/v1/offices/?pageNo=1&pageSize=100';
+  dburl='http://' + '108.65.159.229' +':8084/api/v1/offices/?pageNo=1&pageSize=100';
    dbstring=  ''
    dbmethod='get';
    dbbody='';

@@ -17,10 +17,10 @@ var dbcallspost = require('../functions/dbCallsPost');
 var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 // function to log in to the db
-if ( global.DB_token = 'notoken') {
+//if ( global.DB_token = 'notoken') {
     // console.log('setting Auth token')
      functions.data.db_sign_in();   
-};
+//};
 //#########################################################
 var rtnres =''
 //################################################################
@@ -38,7 +38,7 @@ router.get('/empadd', async (req, res, next) => { rtnres= res.render('empadd',{ 
 router.post('/empAdd', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      //console.log('call dbcalls empadd')
-    dburl='http://' + global.db_token_ip +':8084/api/v1/employees/';
+    dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/';
      varempupdt = req.body.employeeNumber
      dbstring=''
      dbmethod='post';

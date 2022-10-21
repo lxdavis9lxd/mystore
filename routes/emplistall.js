@@ -16,10 +16,10 @@ var functions = require('../functions/db_sign_in');
 var dbcallsget = require('../functions/dbCallsget');
 var dbcallspost = require('../functions/dbCallsPost');
 
-if ( global.DB_token = 'notoken') {
+//if ( global.DB_token = 'notoken') {
      //console.log('setting Auth token')
      functions.data.db_sign_in();   
-};
+//};
 
 var rtnejs='emplistall'
 
@@ -28,7 +28,7 @@ router.get('/emplistall', async (req, res, next) => {
 
    console.log('emplistall',req.body.empsearch);
    console.log('ip', global.db_token_ip)
-   dburl='http://' + global.db_token_ip +':8084/api/v1/employees/';
+   dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/';
    //dburl='http://108.65.159.229:8084/api/v1/employees/';
    dbstring=  ''
    dbmethod='get';

@@ -17,10 +17,10 @@ var dbcallspost = require('../functions/dbCallsPost');
 var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 // function to log in to the db
-if ( global.DB_token = 'notoken') {
+//if ( global.DB_token = 'notoken') {
     // console.log('setting Auth token')
      functions.data.db_sign_in();   
-};
+//};
 //#########################################################
 var rtnres =''
 //################################################################
@@ -38,9 +38,9 @@ router.get('/empsearch', async (req, res, next) => { rtnres= res.render('empsear
 router.post('/empsearch',  async (req, res, next) => {
     console.log('empsearch',req.body.empsearch);
  
-   dburl='http://' + global.db_token_ip +':8084/api/v1/employees/search/';
+   dburl='http://108.65.159.229:8084/api/v1/employees/search/';
     dbstring=  req.body.empsearch
-    console.log('call dbcalls', dbstring)
+    console.log('call dbcalls', dburl)
     initSearch = req.body.empsearch //.toString();
     dbmethod='get';
     dbbody='';
@@ -58,7 +58,7 @@ router.post('/empsearch',  async (req, res, next) => {
 router.post('/empupdtrec', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      console.log('call dbcalls empudt1')
-    dburl='http://' + global.db_token_ip +':8084/api/v1/employees/';
+    dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/';
      varempupdt = req.body.employeeNumber
      dbstring=varempupdt.toString();
      dbmethod='patch';
@@ -70,7 +70,7 @@ router.post('/empupdtrec', urlencodedParser, async (req, res, next) => {
  //refreash page ***********************************
                     dbbody =''
                     dbstring =  initSearch
-                   dburl='http://' + global.db_token_ip +':8084/api/v1/employees/search/';
+                   dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/search/';
                     dbmethod='get';
                     dbcallsget.data.dbCallsGet(dburl,dbstring,dbmethod,dbbody,rtnejs) 
                     .then((data) =>  {  

@@ -5,10 +5,10 @@ const fetch = require('node-fetch');
 var router = express.Router();
 var retresposne = '';
 var functions = require('../functions/db_sign_in');
-if ( global.DB_token = 'notoken') {
+//if ( global.DB_token = 'notoken') {
      //console.log('setting Auth token')
      functions.data.db_sign_in();   
-};
+//};
 //console.log('before');
 // calls from Web Pages, Gets and Posts
 
