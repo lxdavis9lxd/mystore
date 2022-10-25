@@ -28,8 +28,8 @@ router.get('/emplistall', async (req, res, next) => {
 
    console.log('emplistall',req.body.empsearch);
    console.log('ip', global.db_token_ip)
-   dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/';
-   //dburl='http://108.65.159.229:8084/api/v1/employees/';
+   dburl='http://' + global.db_token_ip + '/api/v1/employees/';
+   
    dbstring=  ''
    dbmethod='get';
    dbbody='';

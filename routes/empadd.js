@@ -38,7 +38,7 @@ router.get('/empadd', async (req, res, next) => { rtnres= res.render('empadd',{ 
 router.post('/empAdd', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      //console.log('call dbcalls empadd')
-    dburl='http://' + '108.65.159.229' +':8084/api/v1/employees/';
+    dburl='http://' + global.db_token_ip + '/api/v1/employees/';
      varempupdt = req.body.employeeNumber
      dbstring=''
      dbmethod='post';
