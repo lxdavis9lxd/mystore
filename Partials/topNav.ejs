@@ -71,8 +71,10 @@ body {
 </head>
 <body>
   <div class="navbar">
-    <a href="home">Home</a>
-    <div class="dropdown">
+    <table>
+    <tr>
+     <td> <a href="home">Home</a></td>
+    <td><div class="dropdown">
       <button class="dropbtn">Empolyees
         <i class="fa fa-caret-down"></i>
       </button>
@@ -85,8 +87,8 @@ body {
         <a href=empsearch>Search</a>
         <a href=offlistall>Office List All</a>
       </div>
-    </div>
-    <div class="dropdown">
+    </div> </td>
+    <td><div class="dropdown">
       <button class="dropbtn">Customers
         <i class="fa fa-caret-down"></i>
       </button>
@@ -98,8 +100,8 @@ body {
         <a href=custlistbyid>List By ID</a>
         <a href=custsearch>Search</a>
       </div>
-    </div>
-    <div class="dropdown">
+    </div> </td>
+    <td><div class="dropdown">
       <button class="dropbtn">Product
         <i class="fa fa-caret-down"></i>
       </button>
@@ -111,17 +113,18 @@ body {
         <a href=prodlistbyid>List By ID</a>
         <a href=prodsearch>Search</a>
       </div>
-    </div>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="reguser">Register</a>
-    <div class="login-container">
+    </div> </td>
+    <td><a href="#about">About</a></td>
+    <td><a href="#contact">Contact</a></td>
+    <td><a href="reguser">Register</a></td>
+    <td><div class="login-container">
       <form name="login" action="/login" method="POST">
         <input type="text" placeholder="username" name="username" size="20">
         <input type="password" placeholder="Password" name="password" size="20">
         <button type="submit">Login</button>
       </form>
-    </div>
-   
+    </div></td>
+   </tr>
+   </table>
   </div>
 
