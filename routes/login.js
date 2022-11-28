@@ -38,7 +38,7 @@ var rtnres = '';
 router.post('/login', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      //console.log('call dbcalls empadd')
-    dburl='http://' + '108.65.159.229:8084' + '/api/v1/users/';
+    dburl='http://' + global.db_token_ip + '/api/v1/users/';
      varregusername = req.body.username
      console.log('string', req.body.username)
      dbstring=req.body.username + "&" + req.body.password
@@ -63,7 +63,7 @@ router.post('/login', urlencodedParser, async (req, res, next) => {
                     // information = "Hello " + rtnResults.firstname + " " + rtnResults.lastname
                      //load home page **********************************
                      rtnres= res.render('home',{ resultdata:  "" , title: information});
-//
+
                      //refreash page ***********************************
                    
                     
@@ -74,7 +74,7 @@ router.post('/login', urlencodedParser, async (req, res, next) => {
 })
   
  module.exports = router
-// End of del employee ***********************
+// End of login***********************
 
       
 

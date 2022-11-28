@@ -10,7 +10,7 @@ var functions = require('../functions/db_sign_in');
      functions.data.db_sign_in();   
 //};
 //console.log('before');
-// calls from Web Pages, Gets and Posts
+// calls from Web Pages, Gets and Posts 
 
 //Customer GETS
 //get list of Customer (GetAll)
@@ -18,7 +18,7 @@ var functions = require('../functions/db_sign_in');
 router.get('/getcustlist', async (req, res, next) => {
     const fetch = require('node-fetch');
        // console.log('hit it');  
-        var url ='http://108.65.159.229:8084/api/v1/customers/?pageNo=1&pageSize=100';
+        var url ='http://' + global.db_token_ip + '/api/v1/customers/?pageNo=1&pageSize=100';
         var bearer = 'Bearer ' +  global.DB_token;  //bearer token to use to connect to the database
         const result = await fetch(url,(
         url,{
@@ -48,7 +48,7 @@ router.get('/getcustlistbyid', async (req, res, next) => {
 
  // console.log('hit it getcustlistbyid'); 
   //var url ='http://108.65.159.229:8084/api/v1/customers/?pageNo=1&pageSize=5'; 
-  var url ='http://108.65.159.229:8084/api/v1/customers/103';
+  var url ='http://' + global.db_token_ip + '/api/v1/customers/103';
  
   var bearer = 'Bearer ' +  global.DB_token;  //bearer token to use to connect to the database
   const result = await fetch(url,(

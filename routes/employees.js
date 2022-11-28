@@ -58,7 +58,7 @@ router.post('/emplistbyid', async (req, res, next) => {
         varEmpNbr = req.body.employeeNumber
         //console.log('by ID',varEmpNbr.toString());  
         
-        var empurl ='http://108.65.159.229:8084/api/v1/employees/' + varEmpNbr.toString();
+        var empurl ='http://' + global.db_token_ip + '/api/v1/employees/' + varEmpNbr.toString();
         var bearer = 'Bearer ' +  global.DB_token;
         const result = await fetch(empurl,(
         empurl,{
