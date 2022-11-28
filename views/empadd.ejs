@@ -8,13 +8,11 @@
   </head>
   <%- include('../Partials/topNav.ejs') %>
   <body>
+    Add a Employee:
     
-    
-           
-    <table>
     <div class="empadd">
-      Add a Customer: 
-      <form  name="empaddform" action="/empadd" method="POST">
+      <table>
+       <form  name="empaddform" action="/empadd" method="POST">
         <tr>
           <td><label>Unique Record ID (6000-6999): </label> </td>
           <td><input type="text" placeholder=6000 name="employeeNumber" size="20" required> </td><br>
@@ -49,8 +47,8 @@
       </tr>
         <td><button type="submit">Add</button></td>
       </form>
-    
+    </table>
     </div>
-  </table>
+ 
   </body>
 </html>

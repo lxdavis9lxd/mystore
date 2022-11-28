@@ -42,9 +42,9 @@ router.post('/reguser', urlencodedParser, async (req, res, next) => {
     dburl='http://' + global.db_token_ip  + '/api/v1/users/';
      varregusername = req.body.username
      dbstring=''
-     dbmethod='get';
+     dbmethod='post';
      //console.log('reqbody', req.body)
-     dbbody = JSON.stringify({"Username":req.body.username,"password":req.body.password})
+     dbbody = JSON.stringify({"Username":req.body.username,"password":req.body.password,"email":req.body.email,"role":req.body.role,"firstname":req.body.firstname,"lastname":req.body.lastname})
      //dbbody = JSON.stringify({"Username":"x","password":"x","email":"x","role":"x","firstname":"x","lastname":"x"})
      console.log('dbbody', dbbody)
      //***************************************************  

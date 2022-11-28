@@ -31,29 +31,40 @@ var rtnres = '';
 
 
 //load empudpt page **********************************
-router.get('/reguser', async (req, res, next) => { rtnres= res.render('reguser',{ resultdata:  "" , resultstatus: ""})});
+//router.get('/login', async (req, res, next) => { rtnres= res.render('reguser',{ resultdata:  "" , resultstatus: ""})});
 //*************************************** */
 
  //  Call Add function
-router.post('/reguser', urlencodedParser, async (req, res, next) => {
+router.post('/login', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      //console.log('call dbcalls empadd')
-    //dburl='http://' + 'localhost:5000' + '/api/auth/register/';
-    dburl='http://' + global.db_token_ip  + '/api/v1/users/';
+    dburl='http://' + '108.65.159.229:8084' + '/api/v1/users/';
      varregusername = req.body.username
-     dbstring=''
+     console.log('string', req.body.username)
+     dbstring=req.body.username + "&" + req.body.password
      dbmethod='get';
-     //console.log('reqbody', req.body)
-     dbbody = JSON.stringify({"Username":req.body.username,"password":req.body.password})
-     //dbbody = JSON.stringify({"Username":"x","password":"x","email":"x","role":"x","firstname":"x","lastname":"x"})
-     console.log('dbbody', dbbody)
+     dbbody=""
+     //dbbody = JSON.stringify({"username":req.body.username,"password":req.body.password})
+     console.log('string', dbstring)
      //***************************************************  
   // Update Record **********************************************
-  dbcallspost.data.dbCallsPost(dburl,dbstring,dbmethod,dbbody)
+  dbcallsget.data.dbCallsGet(dburl,dbstring,dbmethod,dbbody,rtnejs) 
+  //dbcallspost.data.dbCallsget(dburl,dbstring,dbmethod,dbbody)
   .then((data) =>{
-                     statusmesg = "Record Updated: "
-                     rtnres= res.render('reguser', { resultdata:  '', resultstatus: statusmesg} );
- //refreash page ***********************************
+                                         
+                     console.log('login succeful',rtnResults) 
+                     var information =''
+                     if (rtnResults.message){
+                        information = "The Login or Password is incorrect: "  + rtnResults.message + ". Please try again "
+                      
+                     } else {
+                      information = "Hello " + rtnResults.firstname + " " + rtnResults.lastname
+                     }
+                    // information = "Hello " + rtnResults.firstname + " " + rtnResults.lastname
+                     //load home page **********************************
+                     rtnres= res.render('home',{ resultdata:  "" , title: information});
+//
+                     //refreash page ***********************************
                    
                     
 

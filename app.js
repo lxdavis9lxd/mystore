@@ -14,6 +14,9 @@ var employeesListAllRouter = require('./routes/emplistall');
 var employeesAddRouter = require('./routes/empadd');
 var officelistallRouter = require('./routes/offlistall');
 var customerRouter = require('./routes/customer');
+var reguserRouter = require('./routes/reguser');
+var loginRouter = require('./routes/login');
+var homepage = require('./routes/home');
 var app = express();
 
 // view engine setup
@@ -36,6 +39,9 @@ app.use('/', employeesSearchRouter);
 app.use('/', employeesListAllRouter);
 app.use('/', employeesAddRouter);
 app.use('/', officelistallRouter);
+app.use('/', reguserRouter);
+app.use('/', loginRouter);
+app.use('/', homepage);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
