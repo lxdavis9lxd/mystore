@@ -16,6 +16,8 @@ var dbcallsget = require('../functions/dbCallsget');
 var dbcallspost = require('../functions/dbCallsPost');
 var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const bcrypt = require("bcryptjs")
+var password =""
 // function to log in to the db
 //if ( global.DB_token = 'notoken') {
     // console.log('setting Auth token')
@@ -31,7 +33,10 @@ var rtnres = '';
 
 
 //load empudpt page **********************************
-router.get('/reguser', async (req, res, next) => { rtnres= res.render('reguser',{ resultdata:  "" , resultstatus: ""})});
+router.get('/reguser', async (req, res, next) => { 
+  statusmesg = "Add A User "
+  rtnres= res.render('reguser',{ resultdata:  "" , resultstatus: statusmesg})
+});
 //*************************************** */
 
  //  Call Add function
@@ -39,19 +44,30 @@ router.post('/reguser', urlencodedParser, async (req, res, next) => {
   // populate the varibles **************************
      //console.log('call dbcalls empadd')
     //dburl='http://' + 'localhost:5000' + '/api/auth/register/';
-    dburl='http://' + global.db_token_ip  + '/api/v1/users/';
-     varregusername = req.body.username
-     dbstring=''
-     dbmethod='post';
-     //console.log('reqbody', req.body)
-     dbbody = JSON.stringify({"Username":req.body.username,"password":req.body.password,"email":req.body.email,"role":req.body.role,"firstname":req.body.firstname,"lastname":req.body.lastname})
-     //dbbody = JSON.stringify({"Username":"x","password":"x","email":"x","role":"x","firstname":"x","lastname":"x"})
-     console.log('dbbody', dbbody)
-     //***************************************************  
-  // Update Record **********************************************
-  dbcallspost.data.dbCallsPost(dburl,dbstring,dbmethod,dbbody)
+    password = req.body.password
+    bcrypt.hash(password, 10).then(async (hash) => {
+    
+            dburl='http://' + global.db_token_ip  + '/api/v1/users/';
+            varregusername = req.body.username
+            
+            dbstring=''
+            dbmethod='post';
+           // console.log('password', hash)
+            dbbody = JSON.stringify({"Username":req.body.username,"email":req.body.email,"role":req.body.role,"firstname":req.body.firstname,"lastname":req.body.lastname,"password":hash})
+            // console.log('dbbody', dbbody)
+            //***************************************************  
+          // Update Record **********************************************
+
+          await dbcallspost.data.dbCallsPost(dburl,dbstring,dbmethod,dbbody)
   .then((data) =>{
-                     statusmesg = "Record Updated: "
+                      //console.log('dbbodata', rtnResults.message)
+                      statusmesg=""
+                     // statusmesg=  rtnResults.message 
+                    
+                     
+    
+    
+                    
                      rtnres= res.render('reguser', { resultdata:  '', resultstatus: statusmesg} );
  //refreash page ***********************************
                    
@@ -60,6 +76,8 @@ router.post('/reguser', urlencodedParser, async (req, res, next) => {
   }
   
 )
+})
+
 })
   
  module.exports = router

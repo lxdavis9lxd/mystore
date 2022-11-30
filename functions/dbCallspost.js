@@ -30,8 +30,9 @@ var methods = {
   global.DB_data = data;
   let DataToReturn = data;
     //console.log('Success 41:',data);
-    console.log('Success 41a:',DataToReturn);
+    //console.log('Success 41a:',DataToReturn);
   global.DB_data = data;
+  rtnResults = data;
   //console.log('golbal:' , global.DB_data);
   //var resultstatus = response.message
   //rtnres= res.render('empdel', { resultdata:  data, resultstatus: data.totalCount} )
@@ -40,7 +41,7 @@ var methods = {
   var sqlServerObj = {
     resultx: data,
 };
-  return "xxcv";
+  return rtnResults;
 })
 .catch((error) => {
   console.error('Error:', error);

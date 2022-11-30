@@ -58,5 +58,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 //set the IP address for the rest API
-global.db_token_ip ='108.65.159.229:8084'
+const restapi = process.env.restapi;
+console.log("RESTAPI IP being used ", restapi)
+global.db_token_ip = restapi.trim()
+//global.db_token_ip = '127.0.0.1:8084'
 module.exports = app;

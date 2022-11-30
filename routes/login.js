@@ -16,6 +16,7 @@ var dbcallsget = require('../functions/dbCallsget');
 var dbcallspost = require('../functions/dbCallsPost');
 var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const bcrypt = require("bcryptjs")
 // function to log in to the db
 //if ( global.DB_token = 'notoken') {
     // console.log('setting Auth token')
@@ -25,7 +26,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var rtnres =''
 //################################################################
 
-// Update Employee *******************************          
+          
 
 var rtnres = '';
 
@@ -34,44 +35,54 @@ var rtnres = '';
 //router.get('/login', async (req, res, next) => { rtnres= res.render('reguser',{ resultdata:  "" , resultstatus: ""})});
 //*************************************** */
 
- //  Call Add function
+ //  Call login function
 router.post('/login', urlencodedParser, async (req, res, next) => {
-  // populate the varibles **************************
-     //console.log('call dbcalls empadd')
-    dburl='http://' + global.db_token_ip + '/api/v1/users/';
-     varregusername = req.body.username
-     console.log('string', req.body.username)
-     dbstring=req.body.username + "&" + req.body.password
-     dbmethod='get';
-     dbbody=""
-     //dbbody = JSON.stringify({"username":req.body.username,"password":req.body.password})
-     console.log('string', dbstring)
-     //***************************************************  
-  // Update Record **********************************************
-  dbcallsget.data.dbCallsGet(dburl,dbstring,dbmethod,dbbody,rtnejs) 
-  //dbcallspost.data.dbCallsget(dburl,dbstring,dbmethod,dbbody)
-  .then((data) =>{
-                                         
-                     console.log('login succeful',rtnResults) 
-                     var information =''
-                     if (rtnResults.message){
-                        information = "The Login or Password is incorrect: "  + rtnResults.message + ". Please try again "
-                      
-                     } else {
-                      information = "Hello " + rtnResults.firstname + " " + rtnResults.lastname
-                     }
-                    // information = "Hello " + rtnResults.firstname + " " + rtnResults.lastname
-                     //load home page **********************************
-                     rtnres= res.render('home',{ resultdata:  "" , title: information});
+  // Login validation **************************
+     
+     password = req.body.password
+   
+    
+                     dburl='http://' + global.db_token_ip + '/api/v1/users/';
+                     varregusername = req.body.username
+                     dbstring=req.body.username
+                     dbmethod='get';
+                     dbbody=""
+                   //***************************************************  
+                  // Check logon  **********************************************
+                   dbcallsget.data.dbCallsGet(dburl,dbstring,dbmethod,dbbody,rtnejs) 
+                                  .then(async (data) => {                                    
+                                       console.log('login succeful',rtnResults) 
+                                       var information =''
+                                       bcrypt.compare(req.body.password, rtnResults.password) .then(function (result)  {
+                                                 result
+                                                console.log("compare",result)
 
-                     //refreash page ***********************************
-                   
-                    
+                                                if (result==false){
+                                                               information = "The Login or Password is incorrect:  Please try again "
+                                                        
+                                                 
+                                                } else {
+                                                         information = "Hello " + rtnResults.firstname + " " + rtnResults.lastname
+                                                       
+                                               
+                                                }
+                                                console.log("info",information) 
+                                                rtnres= res.render('home',{ resultdata:  "" , title: information});
+                                                
+                                       })
+                                       
+                                       //load home page **********************************
+                                      
 
-  }
+                                       
+                                    
+                                    
+
+                  }
   
 )
 })
+//})
   
  module.exports = router
 // End of login***********************
