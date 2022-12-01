@@ -42,6 +42,9 @@ app.use('/', officelistallRouter);
 app.use('/', reguserRouter);
 app.use('/', loginRouter);
 app.use('/', homepage);
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -52,14 +55,14 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-//set the IP address for the rest API
+  //set the IP address for the rest API
 const restapi = process.env.restapi;
 console.log("RESTAPI IP being used ", restapi)
 global.db_token_ip = restapi.trim()
 //global.db_token_ip = '127.0.0.1:8084'
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
 module.exports = app;
