@@ -38,7 +38,7 @@ var methods = {
 .then((data) => {
  // console.log('Success:', data);
   global.DB_token = data.access_token;
-  //console.log('golbal:',  global.DB_token);
+  console.log('golbal:',  global.DB_token);
 })
 .catch((error) => {
   console.error('Error:', error);

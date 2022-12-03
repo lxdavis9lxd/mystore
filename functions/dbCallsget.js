@@ -40,8 +40,10 @@ rtnResults = data;
 return  rtnResults;
 })
 .catch((error) => {
-console.error('Error:', error);
-});
+  console.error('Error:', error);
+  rtnResults= error
+  return  rtnResults
+  });
 
 
 }};

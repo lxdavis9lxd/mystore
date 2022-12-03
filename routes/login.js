@@ -18,10 +18,10 @@ var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const bcrypt = require("bcryptjs")
 // function to log in to the db
-//if ( global.DB_token = 'notoken') {
+if ( global.DB_token === 'notoken') {
     // console.log('setting Auth token')
      functions.data.db_sign_in();   
-//};
+};
 //#########################################################
 var rtnres =''
 //################################################################
