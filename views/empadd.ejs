@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Empolyee Add</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+  <body>
+    Add a Employee:
+    
+    <div class="empadd">
+      <table>
+       <form  name="empaddform" action="/empadd" method="POST">
+        <tr>
+          <td><label>Unique Record ID (6000-6999): </label> </td>
+          <td><input type="text" placeholder=6000 name="employeeNumber" size="20" required> </td><br>
+        </tr>
+        <tr>
+        <td><label>Last Name: </label> </td>
+        <td><input type="text" placeholder="last Name" name="lastName" size="20"> </td><br>
+      </tr>
+      <tr> 
+       <td> <label>First Name: </label> </td>
+       <td><input type="text" placeholder="first Name" name="firstName" size="20"></td> <br>
+      </tr>
+      <tr>
+        <td><label>Phone: </label> </td> 
+        <td><input type="text" placeholder="extension" name="extension" size="20"> </td><br>
+      </tr>
+      <tr>
+          <td><label>Email: </label>  </td> 
+          <td><input type="email" placeholder="email" name="email" size="50"> </td><br> 
+      </tr>
+      <tr>
+          <td><label>Office Code: </label> </td>  
+          <td><input type="text" placeholder="office Code" name="officeCode" size="4" required> ***Use office List All for value </td><br>
+      </tr>
+      <tr>
+          <td><label>ReportTo Code: </label></td>  
+          <td><input type="text" placeholder="reports To" name="reportsTo" size="20" required> ***Use Employee List All for value</td><br> 
+      </tr>
+      <tr>
+          <td><label>Job Title: </label></td>    
+          <td><input type="text" placeholder="job Title" name="jobTitle" size="20"> </td>
+      </tr>
+        <td><button type="submit">Add</button></td>
+      </form>
+    </table>
+    </div>
+ 
+  </body>
+</html>

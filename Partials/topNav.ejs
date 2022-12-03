@@ -67,65 +67,64 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 </style>
 </head>
 <body>
-
   <div class="navbar">
-    <a href="#home">Home</a>
-    <div class="dropdown">
+    <table>
+    <tr>
+     <td> <a href="home">Home</a></td>
+    <td><div class="dropdown">
       <button class="dropbtn">Empolyees
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href=empadd.ejs>Add</a>
-        <a href=empupdt.ejs>Update</a>
-        <a href=empdel.ejs>Delete</a>
-        <a href=emplistall.ejs>List All</a>
-        <a href=emplistbyid.ejs>List By ID</a>
-        <a href=empsearch.ejs>Search</a>
+        <a href=empadd>Add</a>
+        <a href=empupdt>Update</a>
+        <a href=empdel>Delete</a>
+        <a href=emplistall>List All</a>
+        <a href=emplistbyid>List By ID</a>
+        <a href=empsearch>Search</a>
+        <a href=offlistall>Office List All</a>
       </div>
-    </div>
-    <div class="dropdown">
+    </div> </td>
+    <td><div class="dropdown">
       <button class="dropbtn">Customers
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href=custadd.ejs>Add</a>
-        <a href=custupdt.ejs>Update</a>
-        <a href=custdel.ejs>Delete</a>
-        <a href=custlistall.ejs>List All</a>
-        <a href=custlistbyid.ejs>List By ID</a>
-        <a href=custsearch.ejs>Search</a>
+        <a href=custadd>Add</a>
+        <a href=custupdt>Update</a>
+        <a href=custdel>Delete</a>
+        <a href=custlistall>List All</a>
+        <a href=custlistbyid>List By ID</a>
+        <a href=custsearch>Search</a>
       </div>
-    </div>
-    <div class="dropdown">
+    </div> </td>
+    <td><div class="dropdown">
       <button class="dropbtn">Product
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href=prodadd.ejs>Add</a>
-        <a href=produpdt.ejs>Update</a>
-        <a href=proddel.ejs>Delete</a>
-        <a href=prodlistall.ejs>List All</a>
-        <a href=prodlistbyid.ejs>List By ID</a>
-        <a href=prodsearch.ejs>Search</a>
+        <a href=prodadd>Add</a>
+        <a href=produpdt>Update</a>
+        <a href=proddel>Delete</a>
+        <a href=prodlistall>List All</a>
+        <a href=prodlistbyid>List By ID</a>
+        <a href=prodsearch>Search</a>
       </div>
-    </div>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#register">Register</a>
-    <div class="login-container">
-      <form  action="/action_page.php">
-        <input type="text" placeholder="Username" name="username" size="20">
-        <input type="password" placeholder="Password" name="psw" size="20">
+    </div> </td>
+    <td><a href="#about">About</a></td>
+    <td><a href="#contact">Contact</a></td>
+    <td><a href="reguser">Register</a></td>
+    <td><div class="login-container">
+      <form name="login" action="/login" method="POST">
+        <input type="text" placeholder="username" name="username" size="20">
+        <input type="password" placeholder="Password" name="password" size="20">
         <button type="submit">Login</button>
       </form>
-    </div>
+    </div></td>
+   </tr>
+   </table>
   </div>
 
-
-
-</body>
-</html>

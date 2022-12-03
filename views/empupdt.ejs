@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Update</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+ <body>
+  
+  status: <%=resultstatus%>
+  <table>
+    <div class="empupdtsearch">
+      
+      <form  name="empupdtsearch" action="/empupdtsearch" method="post">
+        <tr>
+          <td><label>Search Value:  </label> </td>
+          <td><input type="text"  name="empupdtsearch" size="20" > </td> 
+          <td><label> By: City, Employee, ID,	Last, Name,	First Name,	Phone,	eMail,	Office Code,	Job Title</label></td><br>
+        </tr>
+        <tr>
+        <td><button type="submit">Search</button></td>
+    </tr>
+     
+    
+    
+    </div>
+    
+    
+  </table>
+  
+  <div class="table-data">
+        <h2>Employee Update</h2>
+            <table border="0">
+                <tr>
+                  
+                     <th>Index</th>
+                    <th>City</th>
+                    <th>Employee ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Phone</th>
+                    <th>eMail</th>
+                    <th>Office Code</th>
+                    <th>Job Title</th>
+                 
+                </tr>
+                
+                <%
+               if( resultdata.length!=0){
+              var i=1;
+              resultdata.records.forEach(function(record){
+              %>
+              <tr>
+                  <td> </td>
+                  <td><%=i; %></td>
+                  <form  name="empupdt" action="/empupdtrec" method="post" > 
+                    <td> <input type="text"  name="officeCode_Value" size="10" value='<%=record.officeCode_Value%>' ></td>
+                    <td><%=record.employeeNumber%></td>
+                    <td> <input type="text"  name="lastName" size="10" value='<%=record.lastName%>' ></td>
+                    <td> <input type="text"  name="firstName" size="10" value='<%=record.firstName%>' ></td>
+                    <td> <input type="text"  name="extension" size="6" value='<%=record.extension%>' ></td>
+                    <td> <input type="text"  name="email" size="30" value='<%=record.email%>' ></td>
+                    <td> <input type="text"  name="officeCode" size="4" value='<%=record.officeCode%>' ></td>
+                    <td> <input type="text"  name="jobTitle" size="20" value='<%=record.jobTitle%>' ></td>
+                    <td> 
+                      <input type="hidden"  name="employeeNumber" size="6" value=<%=record.employeeNumber%>> 
+                      <button type="submit">Update</button>
+                   </form>
+                    </td>
+                    </tr>
+                    <%  i++; }) %>
+                    <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                    <% } %>
+            </table>
+            </div>
+      </form>
+      
+</body>
+</html>
+
+
+
+
+
+
+
+
+  

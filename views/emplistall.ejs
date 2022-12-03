@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Employee List Add</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  <body>
+  <%- include('../Partials/topNav.ejs') %>
+ 
+    <div class="table-data">
+      <h2>List all Get empolyee data</h2>
+          <table border="1">
+              <tr>
+                  <th>index</th>
+                  <th>City</th>
+                  <th>Employee ID</th>
+                  <th>Last Name</th>
+                  <th>First Name</th>
+                  <th>Phone</th>
+                  <th>eMail</th>
+                  <th>Office Code</th>
+                  <th>Job Title</th>
+              </tr>
+              
+              <%
+               if( resultdata.length!=0){
+              var i=1;
+              resultdata.records.forEach(function(record){
+              %>
+              <tr>
+                  <td><%=i; %></td>
+                  <td><%=record.officeCode_Value%></td>
+                  <td><%=record.employeeNumber%></td>
+        <td><%=record.lastName%></td>
+        <td><%=record.firstName%></td>
+        <td><%=record.extension%></td>
+        <td><%=record.email%></td>
+        <td><%=record.officeCode%></td>
+        <td><%=record.jobTitle%></td>
+                  </tr>
+              <%  i++; }) %>
+              <% } else{ %>
+                  <tr>
+                      <td colspan="7">No Data Found</td>
+                  </tr>
+              <% } %>
+          </table>
+          </div>
+    
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>register</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  
+  <body>
+   <%- include('../Partials/topNav.ejs') %>
+    Register Page <%= resultstatus %>
+    <div class="error" style="background-color: red;"></div>
+    <form name="registration" action="/reguser" method="POST">
+      
+      <br />
+      <table>
+       <tr>
+          <td> <label for="username">Username</label></td> <br />
+          <td>  <input type="text" name="username" required /></td><br />
+       </tr>
+       <tr>
+          <td>  <label for="password">Password</label></td><br />
+          <td>  <input type="password" name="password" required /></td><br />
+       </tr>
+       <tr>
+        <td>  <label for="firstname">First name</label></td><br />
+        <td>  <input type="text" name="firstname" required /></td><br />
+       </tr>
+       <tr>
+        <td>  <label for="lastname">Last name</label></td><br />
+        <td>  <input type="text" name="lastname" required /></td><br />
+       </tr>
+       <tr>
+         <td>  <label for="email">email</label></td><br />
+         <td>  <input type="text" name="email" required /></td><br />
+        </tr>
+       <tr>
+        <td>  <label for="role">Role(Employee,Customer)</label></td><br />
+        <td>  <input type="text" name="role" required /></td><br />
+       </tr>
+       <tr>
+          <td>  <input type="submit" value="register" /></td><br />
+       </tr>
+    </table>
+    </form>
+    <a href="/login">Already registered? Login</a>
+  </body>
+</html>

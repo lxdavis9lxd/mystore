@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Employee List Add</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+  <body>
+    <div class="table-data">
+      <h2>List all Get empolyee data</h2>
+          <table border="1">
+              <tr>
+                  <th>index</th>
+                  <th>officeCode</th>
+                  <th>city</th>
+                  <th>phone</th>
+                  <th>addressLine1</th>
+                  <th>addressLine2</th>
+                  <th>state</th>
+                  <th>country</th>
+                  <th>postalCode</th>
+                  <th>territory</th>
+              </tr>
+              
+              <%
+               if( resultdata.length!=0){
+              var i=1;
+              resultdata.records.forEach(function(record){
+              %>
+              <tr>
+                  <td><%=i; %></td>
+                  <td><%=record.officeCode%></td>
+                  <td><%=record.city%></td>
+        <td><%=record.phone%></td>
+        <td><%=record.addressLine1%></td>
+        <td><%=record.addressLine2%></td>
+        <td><%=record.state%></td>
+        <td><%=record.country%></td>
+        <td><%=record.postalCode%></td>
+        <td><%=record.territory%></td>
+                  </tr>
+              <%  i++; }) %>
+              <% } else{ %>
+                  <tr>
+                      <td colspan="7">No Data Found</td>
+                  </tr>
+              <% } %>
+          </table>
+          </div>
+    
+  </body>
+</html>

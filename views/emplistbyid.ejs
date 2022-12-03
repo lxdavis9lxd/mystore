@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>By ID</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+ <body>
+  <table>
+    <div class="emplistbyid">
+      
+      <form  name="empbyidform" action="/emplistbyid" method="post">
+        <tr>
+          <td><label>Unique Record ID (6000-6999): </label> </td>
+          <td><input type="text" placeholder=6000 name="employeeNumber" size="20" required> </td><br>
+        </tr>
+        <tr>
+        <td><button type="submit">Lookup</button></td>
+    </tr>
+     
+    
+    </div>
+  </table>
+  <div class="table-data">
+        <h2>Employee By Id</h2>
+            <table border="1">
+                <tr>
+                  
+                    
+                    <th>City</th>
+                    <th>Employee ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Phone</th>
+                    <th>eMail</th>
+                    <th>Office Code</th>
+                    <th>Job Title</th>
+                 
+                </tr>
+                <%
+                 if( resultdata.length!=0){
+                               
+                %>
+                <tr>
+                    
+                    <td><%=resultdata.officeCode_Value%></td>
+                    <td><%=resultdata.employeeNumber%></td>
+                    <td><%=resultdata.lastName%></td>
+                    <td><%=resultdata.firstName%></td>
+                    <td><%=resultdata.extension%></td>
+                    <td><%=resultdata.email%></td>
+                    <td><%=resultdata.officeCode%></td>
+                    <td><%=resultdata.jobTitle%></td>
+                    <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                    <% } %>
+            </table>
+            </div>
+      </form>
+      
+</body>
+</html>
+
+
+
+
+
+
+
+
+  

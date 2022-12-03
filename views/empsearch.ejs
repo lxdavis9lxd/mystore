@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Search</title>
+     <link rel="stylesheet" href="https://stackpath.boo tstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+  </head>
+  <%- include('../Partials/topNav.ejs') %>
+ <body>
+  status: <%=resultstatus%>
+  <table>
+    <div class="empsearch">
+      
+      <form  name="empsearch" action="/empsearch" method="post">
+        <tr>
+          <td><label>Search Value:  </label> </td>
+          <td><input type="text" placeholder=6000 name="empsearch" size="20" required> </td> 
+          <td><label> By: City, Employee, ID,	Last, Name,	First Name,	Phone,	eMail,	Office Code,	Job Title</label></td><br>
+        </tr>
+        <tr>
+        <td><button type="submit">Search</button></td>
+    </tr>
+     
+    
+    </div>
+  </table>
+  <div class="table-data">
+        <h2>Employee Search</h2>
+            <table border="1">
+                <tr>
+                  
+                     <th>Index</th>
+                    <th>City</th>
+                    <th>Employee ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Phone</th>
+                    <th>eMail</th>
+                    <th>Office Code</th>
+                    <th>Job Title</th>
+                 
+                </tr>
+                <%
+               if( resultdata.length!=0){
+              var i=1;
+              resultdata.records.forEach(function(record){
+              %>
+              <tr>
+                  <td><%=i; %></td>
+                  <td><%=record.officeCode_Value%></td>
+                  <td><%=record.employeeNumber%></td>
+                  <td><%=record.lastName%></td>
+                  <td><%=record.firstName%></td>
+                  <td><%=record.extension%></td>
+                  <td><%=record.email%></td>
+                  <td><%=record.officeCode%></td>
+                  <td><%=record.jobTitle%></td>
+                            </tr>
+                    <%  i++; }) %>
+                    <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                    <% } %>
+            </table>
+            </div>
+      </form>
+      
+</body>
+</html>
+
+
+
+
+
+
+
+
+  
